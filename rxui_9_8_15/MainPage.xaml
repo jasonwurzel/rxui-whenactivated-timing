@@ -10,7 +10,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-		<reactiveUi:ViewModelViewHost x:Name="TheViewHost" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<local:SubView DummyProperty="gaga"/>
-    </Grid>
+		<StackPanel>
+			<reactiveUi:ViewModelViewHost x:Name="TheViewHost" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			<local:SubView DummyProperty="gaga"/>
+		</StackPanel>
+	</Grid>
 </Page>
