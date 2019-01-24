@@ -1,4 +1,5 @@
-﻿using ReactiveUI;
+﻿using Windows.UI.Xaml;
+using ReactiveUI;
 
 namespace rxui_9_8_15
 {
@@ -15,8 +16,18 @@ namespace rxui_9_8_15
 
 			this.WhenActivated(disposable =>
 			{
-				TheTextBlock.Text = ViewModel == null ? "ViewModel is null" : "ViewModel is present";
+				TheViewModelTextBlock.Text = ViewModel == null ? "ViewModel is null" : "ViewModel is present";
+				TheDummyPropertyTextBlock.Text = DummyProperty == null ? "DummyProperty is null" : $"DummyProperty is {DummyProperty}";
 			});
+		}
+
+		public static readonly DependencyProperty DummyPropertyProperty = DependencyProperty.Register(
+			"DummyProperty", typeof(string), typeof(SubView), new PropertyMetadata(default(string)));
+
+		public string DummyProperty
+		{
+			get { return (string) GetValue(DummyPropertyProperty); }
+			set { SetValue(DummyPropertyProperty, value); }
 		}
 	}
 
